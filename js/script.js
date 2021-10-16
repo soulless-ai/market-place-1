@@ -33,4 +33,5 @@ window.onclick = function(event) {
 		seller.style.display = "block";
 		buyer.style.display = "block";
 	}
+	
 }

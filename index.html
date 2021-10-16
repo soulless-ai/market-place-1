@@ -64,6 +64,7 @@
 	<body>
 
 		<div id="wrapper">
+			
 			<div id="bg">
 				<img src="img/background.jpg" alt="">
 			</div>
@@ -74,9 +75,65 @@
 			</div>
 
 			<div id="register" class="greetings">
-				<button onclick="document.getElementById('id01').style.display='block'" class="butt" id="seller">открыть магазин</button>
-				<button onclick="document.getElementById('buyer').style.display='block'" class="butt" id="buyer">хочу купить</button>
+				<button onclick="document.getElementById('for-sellers').style.display='block'" class="butt" id="seller">открыть магазин</button>
+				<button onclick="document.getElementById('for-buyers').style.display='block'" class="butt" id="buyer">хочу купить</button>
 			</div>
+
+
+			<div id="for-sellers" class="modal">
+				<form class="modal-content animate" action="/action_page.php">
+					<div class="imgcontainer">
+						<span onclick="document.getElementById('for-sellers').style.display='none'" class="close" title="Close Modal">×</span>
+						<img src="img/background.jpg" alt="Avatar" class="avatar">
+					</div>
+			
+					<div class="container">
+						<label for="uname"><b>Логин.</b></label>
+						<input type="text" placeholder="введите логин" name="uname" required>
+			
+						<label for="psw"><b>Пароль.</b></label>
+						<input type="password" placeholder="введите пароль" name="psw" required>
+						
+						<button type="submit">ВОЙТИ.</button>
+						<label>
+							<input type="checkbox" checked="checked" name="remember"> Запомнить меня.
+						</label>
+					</div>
+			
+					<div class="container" style="background-color:#f1f1f1">
+						<button type="button" onclick="document.getElementById('for-sellers').style.display='none'" class="cancelbtn">Отмена.</button>
+						<span class="psw"><a href="#">Забыли пароль?</a></span>
+					</div>
+				</form>
+			</div>
+
+			<div id="for-buyers" class="modal">
+				<form class="modal-content animate" action="/action_page.php">
+					<div class="imgcontainer">
+						<span onclick="document.getElementById('for-buyers').style.display='none'" class="close" title="Close Modal">×</span>
+						<img src="img/background.jpg" alt="Avatar" class="avatar">
+					</div>
+			
+					<div class="container">
+						<label for="uname"><b>Логин.</b></label>
+						<input type="text" placeholder="введите логин" name="uname" required>
+			
+						<label for="psw"><b>Пароль.</b></label>
+						<input type="password" placeholder="введите пароль" name="psw" required>
+						
+						<button type="submit">ВОЙТИ.</button>
+						<label>
+							<input type="checkbox" checked="checked" name="remember"> Запомнить меня.
+						</label>
+					</div>
+			
+					<div class="container" style="background-color:#f1f1f1">
+						<button type="button" onclick="document.getElementById('for-buyer').style.display='none'" class="cancelbtn">Отмена.</button>
+						<span class="psw"><a href="#">Забыли пароль?</a></span>
+					</div>
+				</form>
+			</div>
+
 
 			<div id="entry" class="modal">
 				<form class="modal-content animate" action="/action_page.php">
@@ -86,21 +143,21 @@
 					</div>
 			
 					<div class="container">
-						<label for="uname"><b>Username</b></label>
-						<input type="text" placeholder="Enter Username" name="uname" required>
+						<label for="uname"><b>Логин.</b></label>
+						<input type="text" placeholder="введите логин" name="uname" required>
 			
-						<label for="psw"><b>Password</b></label>
-						<input type="password" placeholder="Enter Password" name="psw" required>
+						<label for="psw"><b>Пароль.</b></label>
+						<input type="password" placeholder="введите пароль" name="psw" required>
 						
-						<button type="submit">Login</button>
+						<button type="submit">ВОЙТИ.</button>
 						<label>
-							<input type="checkbox" checked="checked" name="remember"> Remember me
+							<input type="checkbox" checked="checked" name="remember"> Запомнить меня.
 						</label>
 					</div>
 			
 					<div class="container" style="background-color:#f1f1f1">
-						<button type="button" onclick="document.getElementById('entry').style.display='none'" class="cancelbtn">Cancel</button>
-						<span class="psw">Forgot <a href="#">password?</a></span>
+						<button type="button" onclick="document.getElementById('entry').style.display='none'" class="cancelbtn">Отмена.</button>
+						<span class="psw"><a href="#">Забыли пароль?</a></span>
 					</div>
 				</form>
 			</div>
