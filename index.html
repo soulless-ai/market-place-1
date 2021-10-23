@@ -104,30 +104,32 @@
 
 		<div id="entry" class="modal">
 			<div id=content>
-				<form class="modal-content animate" action="/action_page.php">
+				<form class="modal-content animate" action="/php/check.php" method="post">
 					<div class="imgcontainer">
 						<span onclick="document.getElementById('entry').style.display='none'" class="close" title="Close Modal">×</span>
 						<img src="img/background.jpg" alt="Avatar" class="avatar">
 					</div>
 		
 					<div class="container">
-						<label id="contrycode" style="font-size: 18px;">
-							<strong><br>[+993]</strong>
+						<label for="number" id="contrycode" style="font-size: 18px;">
+							<strong>[+993]</strong>
 						</label>
-						<input type="text" placeholder="введите номер" name="unumber" required>
-					
-						<input type="password" placeholder="введите пароль" name="psw" required>
-					
-						<button type="submit">ВОЙТИ.</button>
+
+						<input type="number" placeholder="введите номер" name="number" id="unumber" required
+						onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
+						onKeyPress="return check(event,value)" onInput="checkLength()">
+						<input type="password" placeholder="введите пароль" name="password" id="psw" required>
+
 						<label>
-							<input type="checkbox" checked="checked" name="remember"> Запомнить меня.
+							<input type="checkbox" checked="checked" id="remember"> Запомнить меня.
 						</label>
 					</div>
-		
+					
 					<div class="container" style="background-color:#f1f1f1">
-						<button type="button" onclick="document.getElementById('entry').style.display='none'" class="butt" id="cancel">
-							Отмена.
-						</button>
+						
+						<button type="submit" onclick="document.getElementById('').style.display='none'" class="butt" id="inlet">ВОЙТИ.</button>
+						<button type="button" onclick="document.getElementById('entry').style.display='none'" class="butt" id="cancel">Отмена.</button>
+						
 						<span class="psw"><a href="#">Забыли пароль?</a></span>
 					</div>
 				</form>
