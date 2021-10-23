@@ -20,18 +20,18 @@ function addElement(e) {
 	
 	addDiv.classList.add('pulse');
 	this.appendChild(addDiv);
+	document.createElement('div');
 };
 
-let register = document.getElementById('register'),
-	signer = document.getElementById('signer'),
-	seller = document.getElementById('seller'),
-	buyer = document.getElementById('buyer');
+let signer  = document.getElementById('signer'),
+	register = document.getElementById('register'),
+	seller   = document.getElementById('seller'),
+	buyer   = document.getElementById('buyer');
 window.onclick = function(event) {
 	if (event.target == register) {
-		register.style.display = "none";
 		signer.style.display = "none";
+		register.style.display = "none";
 		seller.style.display = "block";
 		buyer.style.display = "block";
 	}
-	
 }

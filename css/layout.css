@@ -3,90 +3,115 @@ html {
 	height: 100%;
 }
 body {
-	font-family: Arial, Helvetica, sans-serif;
 	margin: auto;
 	padding: auto;
 }
-
-
-#bg {
-	position:fixed;
-	top: -50%;
-	left: -50%;
-	width:200%;
-	height:200%;
-}
-#bg img {
-	position:absolute;
-	top:0;
-	left:0;
-	right:0;
-	bottom:0;
-	margin:auto;
-	min-width:50%;
-	min-height:50%;
-}
-
-.greetings {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	-webkit-transition: translate(-50%,-50%);
-	transition: translate(-50%,-50%);
-	-moz-transition: translate(-50%,-50%);
-	transition: translate(-50%,-50%);
-	-ms-transition: translate(-50%,-50%);
-	transition: translate(-50%,-50%);
-	-o-transition: translate(-50%,-50%);
-	transform: translate(-50%,-50%);
-}
-.butt {
-	border: 3px solid #ffd700;
+span {
+	font-family: Arial, Helvetica, sans-serif;
 	font-size: 10px;
 	color: #ffd700;
 	text-transform: uppercase;
-	width: 170px;
-	height: 70px;
 	text-align: center;
 	line-height: 1.5em;
 	text-shadow: #320240 0.5px 0.5px 0;
 	text-decoration: none;
+	margin: 3px;
+	transition: 1s ease-in-out;
+   cursor: pointer;
+	font-weight: 100;
+}
+#wrapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 25%;
+	min-width: 190px;
+	height: 75%;
+	border: 2px solid #ffd700;
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+}
+
+#bg {
+	position: fixed;
+	top: -50%;
+	left: -50%;
+	width: 200%;
+	height: 200%;
+}
+#bg img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	min-width: 50%;
+	min-height: 50%;
+}
+
+.greetings {
+	margin: auto;
+	padding: auto;
+	position: absolute;
+	top: 75%;
+	left: 50%;
+	-webkit-transform: translate(-50%,-75%);
+	transform: translate(-50%,-75%);
+	-moz-transform: translate(-50%,-75%);
+	transform: translate(-50%,-75%);
+	-ms-transform: translate(-50%,-75%);
+	transform: translate(-50%,-75%);
+	-o-transform: translate(-50%,-75%);
+	transform: translate(-50%,-75%);
+}
+.butt {
+	border: 1px solid #ffd700;
+	width: 180px;
+	height: 55px;
+	text-align: center;
+	line-height: 1.5em;
 	position: relative;
 	display: block;
 	margin: 3px;
-	transition: .5s;
+	transition: 1s ease-in-out;
 	overflow: hidden;
 	background-color: Transparent;
    background-repeat: no-repeat;
    cursor: pointer;
    outline: none;
 }
-.butt::before,
-.butt::after {
+svg {
 	position: absolute;
 	content: '';
-	width: 100%;
-	height: 100%;
-	background: #ffd700;
-	top: -100%;
 	left: 0;
-	opacity: .5;
-	transition: .3s;
+	top: 0;
+	fill: none;
+	stroke: #ffae00d0;
+	stroke-dasharray: 150 480;
+	stroke-dashoffset: 150;
+	transition: 1s ease-in-out;
 	z-index: -1;
 }
-.butt::after {
-	opacity: 1;
-	transition-delay: .2s;
-}
 .butt:hover {
-	color:#320240;
+	
+	background: #ffd700;
+	transition: 1s ease-in-out;
+}
+.butt:hover svg {
+	stroke-dashoffset: -480;
+}
+.butt:hover span {
+	color: #320240;
+	text-shadow: #ffd700 0.5px 0.5px 0;
 	text-decoration: none;
 }
-.butt:hover::before,
-.butt:hover::after {
-	top: 0;
-}
-
 
 .pulse {
 	background-color: #320240;
@@ -106,40 +131,47 @@ body {
 
 #seller {
 	display: none;
-	float: left;
 }
 #buyer {
 	display: none;
-	float: left;
 }
+
+
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
+	position: relative;
 	width: 100%;
+	height: 35px;
    padding: 12px 20px;
-   margin: 8px 0;
+   margin: 3px 0;
    display: inline-block;
-   border: 1px solid #ffd700;
+   border: 1.3px solid #320240;
    box-sizing: border-box;
 }
-
-
-/* Extra styles for the cancel button */
-.cancelbtn {
-   width: auto;
-   padding: 10px 18px;
-   background-color: #f44336;
+input[type=text] {
+	width: 77.0%;
+	min-width: 62.16%;
+	max-width: 100%;
+	float: right;
+}
+#contrycode {
+	text-align: right;
+	margin-bottom: 13px;
+}
+#contrycode, input[type=text]{
+	
+	display: inline-block;
 }
 
 /* Center the image and position the close button */
 .imgcontainer {
+	position: relative;
    text-align: center;
-   margin: 24px 0 12px 0;
-   position: relative;
 }
-
 img.avatar {
-   width: 40%;
+	margin: 40px 0 12px 0;
+   width: 70%;
 	border-radius: 50%;
 }
 
@@ -151,7 +183,9 @@ span.psw {
    float: right;
    padding-top: 16px;
 }
-
+a {
+	text-decoration: none;
+}
 /* The Modal (background) */
 .modal {
    display: none; /* Hidden by default */
@@ -164,47 +198,97 @@ span.psw {
    overflow: auto; /* Enable scroll if needed */
    background-color: rgb(0,0,0); /* Fallback color */
    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-   padding-top: 60px;
 }
-
+#content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 25%;
+	min-width: 190px;
+	height: 65%;
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+}
 /* Modal Content/Box */
 .modal-content {
+	width: 100%;
+	min-width: 190px;
+	height: 100%;
    background-color: #ffd700;
-   margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+   margin: auto;
    border: 1px solid #888;
    width: 80%; /* Could be more or less, depending on screen size */
 }
 
+#cancel {
+	width: 45%;
+	height: 15%;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #320240;
+	text-align: center;
+	line-height: 1.5em;
+	text-shadow: #ffd700 0.5px 0.5px 0;
+	border: 1.6px solid #320240;
+	text-decoration: none;
+	transition: 0.5s ease-in-out;
+   cursor: pointer;
+	font-weight: 600;
+}
 /* The Close Button (x) */
 .close {
    position: absolute;
-   right: 25px;
    top: 0;
-   color: #000;
-   font-size: 35px;
+	left: 88%;
+   color: #320240;
+   font-size: 27px;
    font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-   color: red;
+   color: #ffd700;
    cursor: pointer;
 }
 
 /* Add Zoom Animation */
 .animate {
-   -webkit-animation: animatezoom 5s;
-   animation: animatezoom 5s
+   -webkit-animation: animatezoom 0.7s;
+   animation: animatezoom 0.7s;
+	-moz-animation: animatezoom 0.7s;
+	animation: animatezoom 0.7s;
+	-ms-animation: animatezoom 0.7s;
+	animation: animatezoom 0.7s;
+	-o-animation: animatezoom 0.7s;
+	animation: animatezoom 0.7s;
 }
 
 @-webkit-keyframes animatezoom {
    from {-webkit-transform: scale(0)} 
    to {-webkit-transform: scale(1)}
+	from {-moz-transform: scale(0)} 
+   to {-moz-transform: scale(1)}
+	from {-ms-transform: scale(0)} 
+   to {-ms-transform: scale(1)}
+	from {-o-transform: scale(0)} 
+   to {-o-transform: scale(1)}
 }
    
 @keyframes animatezoom {
-	from {transform: scale(0)} 
-   to {transform: scale(1)}
+	from {-webkit-transform: scale(0)} 
+   to {-webkit-transform: scale(1)}
+	from {-moz-transform: scale(0)} 
+   to {-moz-transform: scale(1)}
+	from {-ms-transform: scale(0)} 
+   to {-ms-transform: scale(1)}
+	from {-o-transform: scale(0)} 
+   to {-o-transform: scale(1)}
 }
 
 /* Change styles for span and cancel button on extra small screens */
