@@ -23,19 +23,6 @@ function addElement(e) {
 	document.createElement('div');
 };
 
-let signer   = document.getElementById('signer'),
-	register  = document.getElementById('register'),
-	seller    = document.getElementById('seller'),
-	buyer     = document.getElementById('buyer');
-window.onclick = function(event) {
-	if (event.target == register) {
-		signer.style.display   = "none";
-		register.style.display = "none";
-		seller.style.display   = "block";
-		buyer.style.display    = "block";
-	}
-}
-
 let inputEl = document.getElementById('unumber');
 let goodKey = '0123456789+';
 let checkInputTel = function(e) {
