@@ -66,7 +66,7 @@
 		<div id="bg">
 			<img src="img/background.jpg" alt="">
 		</div>
-		<div id="wrapper">
+		<div id="wrapper" class="main-wind">
 			<div class="greetings">
 				<button onclick="document.getElementById('entry').style.display='block'" class="butt" id="signer">
 					<span>войти</span>
@@ -85,7 +85,10 @@
 			</div>
 
 			<div id="register" class="greetings">
-				<button onclick="document.getElementById('for-sellers').style.display='block'" class="butt" id="seller">
+				<button class="butt" id="seller"
+				onclick="
+				document.getElementById('for-sellers').style.display='block';
+				document.getElementById('wrapper').style.display='none';">
 					<span>открыть магазин</span>
 					<svg width="180px" height="55px" viewBox="0 0 180 55" class="border">
 						<polyline points="178,0.5 178,52 0.5,52 0.5,1 178,1" class="bg-line" />
@@ -103,7 +106,7 @@
 		</div>
 
 		<div id="entry" class="modal">
-			<div id=content>
+			<div id="entry-content" class="content">
 				<form class="modal-content animate" action="/php/check.php" method="post">
 					<div class="imgcontainer">
 						<span onclick="document.getElementById('entry').style.display='none'" class="close" title="Close Modal">×</span>
@@ -111,15 +114,12 @@
 					</div>
 		
 					<div class="container">
-						<label for="number" id="contrycode" style="font-size: 18px;">
-							<strong>[+993]</strong>
-						</label>
+						
+						<input type="tel" placeholder="+993" name="number" id="unumber" required
+								onInput="checkLength()">
+						
 
-						<input type="number" placeholder="введите номер" name="number" id="unumber" required
-						onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
-						onKeyPress="return check(event,value)" onInput="checkLength()">
 						<input type="password" placeholder="введите пароль" name="password" id="psw" required>
-
 						<label>
 							<input type="checkbox" checked="checked" id="remember"> Запомнить меня.
 						</label>
@@ -136,31 +136,43 @@
 			</div>
 		</div>
 
-		<div id="for-sellers" class="modal">
-			<form class="modal-content animate" action="/action_page.php">
-				<div class="imgcontainer">
-					<span onclick="document.getElementById('for-sellers').style.display='none'" class="close" title="Close Modal">×</span>
-					<img src="img/background.jpg" alt="Avatar" class="avatar">
-				</div>
+		<div id="for-sellers" class="main-wind">
+			<div id="seller-content" class="content">
+				<form id="seller-modal" class="modal-content" action="/php/check.php" method="post">
+					<div class="imgcontainer">
+						<span id = "x" class="close"
+						onclick = " document.getElementById('wrapper').style.display = 'block'; document.getElementById('for-sellers').style.display ='none'"
+						title="Close Modal">×</span>
+						<img src="img/background.jpg" alt="Avatar" class="avatar">
+					</div>
 		
-				<div class="container">
-					<label for="uname"><b>Логин.</b></label>
-					<input type="text" placeholder="введите логин" name="uname" required>
-		
-					<label for="psw"><b>Пароль.</b></label>
-					<input type="password" placeholder="введите пароль" name="psw" required>
+					<div class="container">
+						<label for="number" id="contrycode" style="font-size: 18px;">
+							<strong>[+993]</strong>
+							</label>
+						
+						<input type="number" value="+993" placeholder="введите номер" name="number" id="unumber" required
+						onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
+						onKeyPress="return check(event,value)" onInput="checkLength()">
+						
+
+						<input type="password" placeholder="введите пароль" name="password" id="psw" required>
+						<label>
+							<input type="checkbox" checked="checked" id="remember"> Запомнить меня.
+						</label>
+					</div>
 					
-					<button type="submit">ВОЙТИ.</button>
-					<label>
-						<input type="checkbox" checked="checked" name="remember"> Запомнить меня.
-					</label>
-				</div>
-		
-				<div class="container" style="background-color:#f1f1f1">
-					<button type="button" onclick="document.getElementById('for-sellers').style.display='none'" class="cancelbtn">Отмена.</button>
-					<span class="psw"><a href="#">Забыли пароль?</a></span>
-				</div>
-			</form>
+					<div class="container" style="background-color:#f1f1f1">
+						
+						<button type="submit" onclick="document.getElementById('').style.display='none'" class="butt" id="inlet">ВОЙТИ.</button>
+						<button type="button" id="cancel" class="butt"
+						onclick = " document.getElementById('wrapper').style.display  = 'block'; 
+									document.getElementById('for-sellers').style.display ='none'" >Отмена.</button>
+						
+						<span class="psw"><a href="#">Забыли пароль?</a></span>
+					</div>
+				</form>
+			</div>
 		</div>
 
 		<div id="for-buyers" class="modal">

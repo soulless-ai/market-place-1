@@ -23,25 +23,39 @@ function addElement(e) {
 	document.createElement('div');
 };
 
-let signer  = document.getElementById('signer'),
-	register = document.getElementById('register'),
-	seller   = document.getElementById('seller'),
-	buyer   = document.getElementById('buyer');
+let signer   = document.getElementById('signer'),
+	register  = document.getElementById('register'),
+	seller    = document.getElementById('seller'),
+	buyer     = document.getElementById('buyer');
 window.onclick = function(event) {
 	if (event.target == register) {
-		signer.style.display = "none";
+		signer.style.display   = "none";
 		register.style.display = "none";
-		seller.style.display = "block";
-		buyer.style.display = "block";
+		seller.style.display   = "block";
+		buyer.style.display    = "block";
 	}
 }
 
-function check(e,value) {
-	//Check Charater
-	let unicode = e.charCode? e.charCode : e.keyCode;
-	if (value.indexOf(".") != -1) if ( unicode == 46 ) return false;
-	if (unicode!=8) if ((unicode < 48 || unicode > 57) && unicode != 46) return false;
+let inputEl = document.getElementById('unumber');
+let goodKey = '0123456789+';
+let checkInputTel = function(e) {
+	let key = (typeof e.which == "number") ? e.which : e.keyCode;
+	let start = this.selectionStart,
+		end = this.selectionEnd;
+
+	let filtered = this.value.split('').filter(filterInput);
+	this.value = filtered.join("");
+
+  /* Prevents moving the pointer for a bad character */
+	let move = (filterInput(String.fromCharCode(key)) || (key == 0 || key == 8)) ? 0 : 1;
+	this.setSelectionRange(start - move, end - move);
 }
+
+let filterInput = function(val) {
+	return (goodKey.indexOf(val) > -1);
+}
+inputEl.addEventListener('input', checkInputTel);
+
 function checkLength() {
 	let fieldLength = document.getElementById('unumber').value.length;
 	//Suppose u want 4 number of character

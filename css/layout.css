@@ -20,7 +20,7 @@ span {
    cursor: pointer;
 	font-weight: 100;
 }
-#wrapper {
+.main-wind {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -39,10 +39,14 @@ span {
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-   /* display: none; <- Crashes Chrome on hover */
 	-webkit-appearance: none;
-   margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+   margin: 0;
 }
+input[placeholder]          {text-overflow:ellipsis;}
+input::-moz-placeholder     {text-overflow:ellipsis;} 
+input:-moz-placeholder      {text-overflow:ellipsis;} 
+input:-ms-input-placeholder {text-overflow:ellipsis;}   
+
 
 #bg {
 	position: fixed;
@@ -106,7 +110,6 @@ svg {
 	z-index: -1;
 }
 .butt:hover {
-	
 	background: #ffd700;
 	transition: 1s ease-in-out;
 }
@@ -144,8 +147,49 @@ svg {
 
 
 
+/* The Modal (background) */
+.modal {
+   display: none; /* Hidden by default */
+   position: fixed; /* Stay in place */
+   z-index: 1; /* Sit on top */
+   left: 0;
+   top: 0;
+   width: 100%; /* Full width */
+   height: 100%; /* Full height */
+   overflow: auto; /* Enable scroll if needed */
+   background-color: rgb(0,0,0); /* Fallback color */
+   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+#entry-content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 25%;
+	min-width: 190px;
+	height: 65%;
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+}
+.modal-content {
+	width: 100%;
+	min-width: 190px;
+	height: 100%;
+   background-color: #ffd700;
+   margin: auto;
+   border: 1px solid #888;
+   width: 80%; 
+}
+
 /* Full-width input fields */
-input[type=number], input[type=password] {
+input[type=tel], input[type=password] {
 	position: relative;
 	width: 100%;
 	height: 35px;
@@ -155,17 +199,22 @@ input[type=number], input[type=password] {
    border: 1.3px solid #320240;
    box-sizing: border-box;
 }
-input[type=text] {
-	width: 77.0%;
-	min-width: 62.16%;
-	float: right;
+input[type=tel]:focus::-webkit-input-placeholder { 
+	position: static;
+	display: inline-block; 
+	float: left;
+	text-align: center;
 }
-#contrycode {
-}
-#contrycode, input[type=text]{
-	
-	display: inline-block;
-}
+
+#psw::-webkit-input-placeholder       {opacity: 1; transition: opacity 0.3s ease;}
+#psw::-moz-placeholder                {opacity: 1; transition: opacity 0.3s ease;}
+#psw:-moz-placeholder                 {opacity: 1; transition: opacity 0.3s ease;}
+#psw:-ms-input-placeholder            {opacity: 1; transition: opacity 0.3s ease;}
+#psw:focus::-webkit-input-placeholder {opacity: 0; transition: opacity 0.3s ease;}
+#psw:focus::-moz-placeholder          {opacity: 0; transition: opacity 0.3s ease;}
+#psw:focus:-moz-placeholder           {opacity: 0; transition: opacity 0.3s ease;}
+#psw:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s ease;}
+
 
 /* Center the image and position the close button */
 .imgcontainer {
@@ -189,45 +238,7 @@ span.psw {
 a {
 	text-decoration: none;
 }
-/* The Modal (background) */
-.modal {
-   display: none; /* Hidden by default */
-   position: fixed; /* Stay in place */
-   z-index: 1; /* Sit on top */
-   left: 0;
-   top: 0;
-   width: 100%; /* Full width */
-   height: 100%; /* Full height */
-   overflow: auto; /* Enable scroll if needed */
-   background-color: rgb(0,0,0); /* Fallback color */
-   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-#content {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 25%;
-	min-width: 190px;
-	height: 65%;
-	-webkit-transform: translate(-50%,-50%);
-	transform: translate(-50%,-50%);
-	-moz-transform: translate(-50%,-50%);
-	transform: translate(-50%,-50%);
-	-ms-transform: translate(-50%,-50%);
-	transform: translate(-50%,-50%);
-	-o-transform: translate(-50%,-50%);
-	transform: translate(-50%,-50%);
-}
-/* Modal Content/Box */
-.modal-content {
-	width: 100%;
-	min-width: 190px;
-	height: 100%;
-   background-color: #ffd700;
-   margin: auto;
-   border: 1px solid #888;
-   width: 80%; /* Could be more or less, depending on screen size */
-}
+
 
 #inlet {
 	width: 100%;
@@ -252,13 +263,18 @@ a {
 	color: #320240;
 	text-align: center;
 	line-height: 1.5em;
-	text-shadow: #dad5be 0.5px 0.5px 0;
+	text-shadow: #f1f1f1 0.5px 0.5px 0;
 	border: 1.6px solid #320240;
 	text-decoration: none;
 	transition: 0.5s ease-in-out;
    cursor: pointer;
 	font-weight: 600;
 	float: right;
+	margin-top: 13%;
+}
+#cancel:hover,
+#cancel:focus {
+   background-color: #f1f1f1;
 }
 /* The Close Button (x) */
 .close {
@@ -319,4 +335,39 @@ a {
 	.cancelbtn {
 		width: 100%;
 	}
+}
+
+
+.main-wind {
+
+}
+#for-sellers {
+	display: none;
+}
+#seller-content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100%;
+	min-width: 190px;
+	height: 100%;
+	border: 2px solid #ffd700;
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+}
+#seller-modal {
+	width: 100%;
+	min-width: 190px;
+	height: 100%;
+   background-color: Transparent;
+   background-repeat: no-repeat;
+   margin: auto;
+   border: 1px solid rgb(136, 136, 136);
+   width: 80%; 
 }
