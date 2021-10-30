@@ -48,7 +48,7 @@
 		<link rel="alternate" media="only screen and (max-width: 640px)" href="https://m.link.tm/" />
 		
 		<link rel="stylesheet" type="text/css" href="css/normalize.min.css" media="screen">
-		<link rel="stylesheet" type="text/css" href="css/w-icon.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="css/fontawesome.css" media="screen">
 		<link rel="stylesheet" type="text/css" href="css/layout.css" media="screen">
 
 		<script type="text/javascript">
@@ -59,8 +59,8 @@
 			}
 		</script>
 
-		
 	</head>
+
 
 
 	<body>
@@ -70,7 +70,12 @@
 		</div>
 		<div id="wrapper" class="main-wind">
 			<div class="greetings">
-				<button onclick="document.getElementById('entry').style.display='block'" class="butt" id="signer">
+				<button onclick="
+						document.getElementById('signer').style.display='none';
+						document.getElementById('regisButton').style.display='none';
+						document.getElementById('entry').style.display='block';
+						document.getElementById('backward').style.display='block';" 
+						class="butt" id="signer">
 					<span>войти</span>
 					<svg width="178px" height="53px" viewBox="0 0 178 53" class="border">
 						<polyline points="0.5,52 0.5,1 177,1 177,51 0.5,52" class="bg-line" />
@@ -79,20 +84,17 @@
 				</button>
 				<button onclick="
 						document.getElementById('signer').style.display='none';
-						document.getElementById('regis').style.display='none';
-						document.getElementById('regist').style.display='block';
+						document.getElementById('regisButton').style.display='none';
 						document.getElementById('seller').style.display='block';
 						document.getElementById('buyer').style.display='block';" 
-						class="butt" id="regis">
+						class="butt" id="regisButton">
 					<span>зарегистрироваться</span>
 					<svg width="178px" height="53px" viewBox="0 0 178 53" class="border">
 						<polyline points="177,0.5 177,52 0.5,52 0.5,1 177,1" class="bg-line" />
 						<polyline points="177,0.5 177,52 0.5,52 0.5,1 177,1" class="hl-line" />
 					</svg>
 				</button>
-			</div>
 
-			<div id="regist" class="greetings"> 
 				<button class="butt" id="seller"
 						onclick="
 						document.getElementById('for-sellers').style.display='block';
@@ -115,99 +117,60 @@
 			</div>
 		</div>
 
-		<div id="entry" class="modal">
-			<div id="entry-content" class="content">
-				<form class="modal-content animate" action="/php/check.php" method="post">
-					<div class="imgcontainer">
-						<span onclick="document.getElementById('entry').style.display='none'" class="close" title="Close Modal">×</span>
-						<img src="img/background.jpg" alt="Avatar" class="avatar">
-					</div>
-		
-					<div class="container">
-						
-						<input type="tel" placeholder="+993" name="number" id="unumber" required
-								onInput="checkLength()">
-						
-
-						<input type="password" placeholder="введите пароль" name="password" id="psw" required>
-						<label>
-							<input type="checkbox" checked="checked" id="remember"> Запомнить меня.
-						</label>
-					</div>
-					
-					<div class="container" style="background-color:#f1f1f1">
-						
-						<button type="submit" onclick="document.getElementById('').style.display='none'" class="butt" id="inlet">ВОЙТИ.</button>
-						<button type="button" onclick="document.getElementById('entry').style.display='none'" class="butt" id="cancel">Отмена.</button>
-						
-						<span class="psw"><a href="#">Забыли пароль?</a></span>
-					</div>
-				</form>
-			</div>
-		</div>
-
-		<div id="for-sellers" class="main-wind">
-			<div id="seller-content" class="content">
-				<form id="seller-modal" class="modal-content" action="/php/check.php" method="post">
-					<div class="imgcontainer">
-						<span id = "x" class="close"
-						onclick = " document.getElementById('wrapper').style.display = 'block'; document.getElementById('for-sellers').style.display ='none'"
-						title="Close Modal">×</span>
-						<img src="img/background.jpg" alt="Avatar" class="avatar">
-					</div>
-		
-					<div class="container">
-						<label for="number" id="contrycode" style="font-size: 18px;">
-							<strong>[+993]</strong>
-							</label>
-						
-						<input type="number" value="+993" placeholder="введите номер" name="number" id="unumber" required
-						onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
-						onKeyPress="return check(event,value)" onInput="checkLength()">
-						
-
-						<input type="password" placeholder="введите пароль" name="password" id="psw" required>
-						<label>
-							<input type="checkbox" checked="checked" id="remember"> Запомнить меня.
-						</label>
-					</div>
-					
-					<div class="container" style="background-color:#f1f1f1">
-						
-						<button type="submit" onclick="document.getElementById('').style.display='none'" class="butt" id="inlet">ВОЙТИ.</button>
-						<button type="button" id="cancel" class="butt"
-						onclick = " document.getElementById('wrapper').style.display  = 'block'; 
-									document.getElementById('for-sellers').style.display ='none'" >Отмена.</button>
-						
-						<span class="psw"><a href="#">Забыли пароль?</a></span>
-					</div>
-				</form>
-			</div>
-		</div>
-
-		<div id="for-buyers" class="modal">
-			<form class="modal-content animate" action="/action_page.php">
+		<div id="entry" class="main-wind">
+			<form id="entry-content" action="/php/check.php" method="post">
 				<div class="imgcontainer">
-					<span onclick="document.getElementById('for-buyers').style.display='none'" class="close" title="Close Modal">×</span>
 					<img src="img/background.jpg" alt="Avatar" class="avatar">
 				</div>
-		
+
 				<div class="container">
-					<label for="uname"><b>Логин.</b></label>
-					<input type="text" placeholder="введите логин" name="uname" required>
-		
-					<label for="psw"><b>Пароль.</b></label>
-					<input type="password" placeholder="введите пароль" name="psw" required>
+
+					<label class="note">Номер телефона:</label>
+					<div id="codecontry">
+						<b id="contry">+993</b>
+						<input type="tel" placeholder="введите номер" name="number" class="inputU" id="unumber" required
+						onInput="checkLength()">
+					</div>
 					
-					<button type="submit">ВОЙТИ.</button>
-					<label>
-						<input type="checkbox" checked="checked" name="remember"> Запомнить меня.
+
+					<label class="note">Пароль:</label>
+					<span class="psw"><a href="#" id="forgotten">Забыли пароль?</a></span>
+					<div class="forpassword">
+						<input type="password" placeholder="введите пароль" name="password" class="inputU" id="psw" required>
+					</div>
+					
+					<label id="remember">
+						<input type="checkbox" checked="checked" id="birdie"> 
+						<label for="birdie" id="textRemember" class="note">Запомнить меня.</label>
 					</label>
 				</div>
-		
-				<div class="container" style="background-color:#f1f1f1">
-					<button type="button" onclick="document.getElementById('for-buyer').style.display='none'" class="cancelbtn">Отмена.</button>
-					<span class="psw"><a href="#">Забыли пароль?</a></span>
+					
+				<div class="greetings">
+					<button type="submit"
+							class="butt" id="sign"
+							onclick="
+								document.getElementById('regisButton').style.display='none';
+								document.getElementById('entry').style.display='block';
+								document.getElementById('backward').style.display='block';">
+						<span>войти</span>
+						<svg width="178px" height="53px" viewBox="0 0 178 53" class="border">
+							<polyline points="0.5,52 0.5,1 177,1 177,51 0.5,52" class="bg-line" />
+							<polyline points="0.5,52 0.5,1 177,1 177,51 0.5,52" class="hl-line" />
+						</svg>
+					</button>						
+					<button type="button"
+							class="butt" id="backward"
+							onclick="
+								document.getElementById('backward').style.display='none';
+								document.getElementById('entry').style.display='none';
+								document.getElementById('signer').style.display='block';
+								document.getElementById('regisButton').style.display='block';">
+						<span>назад</span>
+						<svg width="178px" height="53px" viewBox="0 0 178 53" class="border">
+							<polyline points="0.5,52 0.5,1 177,1 177,51 0.5,52" class="bg-line" />
+							<polyline points="0.5,52 0.5,1 177,1 177,51 0.5,52" class="hl-line" />
+						</svg>
+					</button>
 				</div>
 			</form>
 		</div>
