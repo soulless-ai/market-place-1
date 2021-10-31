@@ -2,10 +2,14 @@ html {
 	width: 100%;
 	height: 100%;
 }
-	body {
+	*, 
+	*::after,
+	*::before {
+		box-sizing: border-box;
 		margin: auto;
 		padding: auto;
 	}
+
 span {
 	position: relative;
 	font-family: 'Vollkorn', serif;;
@@ -467,6 +471,42 @@ select:-webkit-autofill:focus {
 #for-buyers{
 	display: none;
 }
+	
+	.accept__note {
+		position: relative;
+		left: 28px;
+		top: -31px;
+		font-family: 'Vollkorn', serif;
+		font-size: 12px;
+		color: #ffd700;
+		text-align: center;
+		line-height: 1.5em;
+		text-decoration: none;
+		cursor: text;
+		font-weight: 100;
+		-webkit-text-stroke: .2px #320240;
+		-webkit-transition: 300ms ease-in-out;
+		-moz-transition: 300ms ease-in-out;
+		-o-transition: 300ms ease-in-out;
+		transition: 300ms ease-in-out;
+	}
+	.accept__input:hover ~ .accept__note,
+	.accept__input:focus ~ .accept__note {
+		position: relative;
+		top: -53px;
+		left: 10px;
+		font-size: 15px;
+		background-image: url(/img/background.jpg);
+		padding: 1px 4px;
+		margin: 0px;
+		border-top: 2px solid rgb(255, 215, 0);
+		box-sizing: border-box;
+		border-radius: 7px;
+		box-shadow: inset 0px 1.5px 3px rgb(50,2,64);
+		color: rgb(255, 215, 0);
+		-webkit-text-stroke: .3px #320240;
+	}
+
 	.alternative {
 		float: right;
 		color:rgb(255, 215, 0);

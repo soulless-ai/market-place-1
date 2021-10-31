@@ -97,10 +97,10 @@
 			</button>
 
 			<button class="butt" id="buyer" onclick="
-						document.getElementById('signer').style.display='none';
-						document.getElementById('regisButton').style.display='none';
+						document.getElementById('buyer').style.display='none';
+						document.getElementById('seller').style.display='none';
 						document.getElementById('for-buyers').style.display='block';
-						document.getElementById('backward').style.display='block';">
+						document.getElementById('backward1').style.display='block';">
 				<span>покупатель</span>
 				<br>
 				<span id="fr-buyrs">хочу купить</span>
@@ -110,6 +110,8 @@
 				</svg>
 			</button>
 			<button class="butt" id="seller" onclick="
+						document.getElementById('buyer').style.display='none';
+						document.getElementById('seller').style.display='none';
 						document.getElementById('for-sellers').style.display='block';
 						document.getElementById('wrapper').style.display='none';">
 				<span>продавец</span>
@@ -132,13 +134,13 @@
 
 			<div class="container">
 				<label class="note">Номер телефона:</label>
-				<div id="codecontry">
+				<div >
 					<b id="contry">+993</b>
 					<input type="tel" class="admit" id="unumber" placeholder="введите номер" autocomplite="tel" required
 						onInput="checkLength()">
 				</div>
 				<label class="note">Пароль:</label>
-				<span class="psw"><a href="#" id="forgotten">Забыли пароль?</a></span>
+				<span class="note"><a href="#" id="forgotten">Забыли пароль?</a></span>
 				<div class="forpassword">
 					<input type="password" class="admit" id="psw" placeholder="введите пароль" autocomplite="password" required>
 				</div>
@@ -180,13 +182,13 @@
 			<div class="container">
 				<br>
 				<br>
-				<label class="note" style="text-decoration: none; font-size: 15px;">Имя:</label>
-				<div class="fortext">
-					<input type="text" class="admit" id="psw" placeholder="Имя"  required>
+				<div class="accept">
+					<input type="text" class="accept__input" id="name" autocomplete="off" required>
+					<label for="name" class="accept__note">Имя:</label>
 				</div>
-				<label class="note" style="text-decoration: none; font-size: 15px;">Фамилия:</label>
-				<div class="fortext">
-					<input type="text" class="admit" id="psw" placeholder="фамилия"  required>
+				<div class="accept">
+					<input type="text" class="accept__input" id="surname" autocomplete="off" required>
+					<label for="surname" class="accept__note">Фамилия:</label>
 				</div>
 
 				<fieldset class="alternative">
@@ -207,7 +209,7 @@
 				<br>
 				<br>
 				<br>
-				<label class="note" style="text-decoration: none; font-size: 15px;">Номер телефона:</label>
+				<label class="note">Номер телефона:</label>
 				<div id="codecontry">
 					<b id="contry">+993</b>
 					<input type="tel" placeholder="введите номер" name="number" class="admit" id="unumber" required
@@ -219,16 +221,16 @@
 			<div class="greetings">
 				<button type="button" class="butt" id="sign" onclick="
 								document.getElementById('regisButton').style.display='none';
-								document.getElementById('entry').style.display='block';
-								document.getElementById('backward').style.display='block';">
+								document.getElementById('').style.display='block';
+								document.getElementById('backward2').style.display='block';">
 					<span>далее</span>
 					<svg width="178px" height="53px" viewBox="0 0 178 53" class="border">
 						<polyline points="0.5,52 0.5,0.5 176,0.5 176,51 0,51" class="bg-line" />
 						<polyline points="0.5,52 0.5,0.5 176,0.5 176,51 0,51" class="hl-line" />
 					</svg>
 				</button>
-				<button type="button" class="butt" id="backward" onclick="
-								document.getElementById('backward').style.display='none';
+				<button type="button" class="butt" id="backward1" onclick="
+								document.getElementById('backward1').style.display='none';
 								document.getElementById('for-buyers').style.display='none';
 								document.getElementById('signer').style.display='block';
 								document.getElementById('regisButton').style.display='block';">
