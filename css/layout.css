@@ -86,6 +86,23 @@ select:-webkit-autofill:focus {
 	transition: background-color 5000s ease-in-out 0s;
 }
 
+input[type="text"]::-ms-clear {
+	display: none;
+}
+input[type="password"]::-ms-reveal {
+	display: none;
+}
+input[list]::-webkit-calendar-picker-indicator {
+	display: none;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	input[type="password"] {
+		font-family: Verdana, Geneva, sans-serif;
+		letter-spacing: -.75px;
+	} 
+}
+
+
 #bg {
 	position: fixed;
 	top: -50%;
@@ -255,6 +272,7 @@ select:-webkit-autofill:focus {
 			box-shadow: inset 0px 0px 4px rgb(50,2,64);
 			background: url("/img/background.jpg") 0px 0px no-repeat;
 			outline: none;
+			text-overflow: ellipsis;
 		}
 		input[type="tel"] {
 			padding: 3px 45px;
@@ -315,7 +333,13 @@ select:-webkit-autofill:focus {
 		.admit:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s ease;}
 
 
+		.remember {
+			float: right;
+		}
 		#birdie {
+			float: right;
+			width: 0px;
+			height: 0px;
 			color: #320240;
 		}
 		
@@ -471,7 +495,9 @@ select:-webkit-autofill:focus {
 #for-buyers{
 	display: none;
 }
-	
+	.accept_input {
+		text-transform: capitalize;
+	}
 	.accept__note {
 		position: relative;
 		left: 28px;
@@ -490,22 +516,22 @@ select:-webkit-autofill:focus {
 		-o-transition: 300ms ease-in-out;
 		transition: 300ms ease-in-out;
 	}
-	.accept__input:hover ~ .accept__note,
-	.accept__input:focus ~ .accept__note {
-		position: relative;
-		top: -53px;
-		left: 10px;
-		font-size: 15px;
-		background-image: url(/img/background.jpg);
-		padding: 1px 4px;
-		margin: 0px;
-		border-top: 2px solid rgb(255, 215, 0);
-		box-sizing: border-box;
-		border-radius: 7px;
-		box-shadow: inset 0px 1.5px 3px rgb(50,2,64);
-		color: rgb(255, 215, 0);
-		-webkit-text-stroke: .3px #320240;
-	}
+		.accept__input:hover ~ .accept__note,
+		.accept__input:focus ~ .accept__note,
+		.accept__input:not(:placeholder-shown).accept__input:not(:focus) ~ .accept__note  {
+			top: -53px;
+			left: 10px;
+			font-size: 15px;
+			background-image: url(/img/background.jpg);
+			padding: 1px 4px;
+			margin: 0px;
+			border-top: 2px solid rgb(255, 215, 0);
+			box-sizing: border-box;
+			border-radius: 7px;
+			box-shadow: inset 0px 1.5px 3px rgb(50,2,64);
+			color: rgb(255, 215, 0);
+			-webkit-text-stroke: .3px #320240;
+		}
 
 	.alternative {
 		float: right;

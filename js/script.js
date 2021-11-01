@@ -23,8 +23,9 @@ function addElement(e) {
 	document.createElement('div');
 };
 
+
 let inputEl = document.getElementById('unumber');
-let goodKey = '0123456789+';
+let goodKey = '0123456789';
 let checkInputTel = function(e) {
 	let key = (typeof e.which == "number") ? e.which : e.keyCode;
 	let start = this.selectionStart,
@@ -43,16 +44,17 @@ let filterInput = function(val) {
 }
 inputEl.addEventListener('input', checkInputTel);
 
-function checkLength() {
-	let fieldLength = document.getElementById('unumber').value.length;
-	//Suppose u want 4 number of character
-	if (fieldLength <= 8){
-		return true;
-	}
-	else
-	{
-		let str = document.getElementById('unumber').value;
-			str = str.substring(0, str.length - 1);
-		document.getElementById('unumber').value = str;
-	}
-}
+$.fn.capitalize = function () {
+	$.each(this, function () {
+			let split = this.value.split(' ');
+			for (var i = 0, len = split.length; i < len; i++) {
+				split[i] = split[i].charAt(0).toUpperCase() + split[i].slice(1);
+		}
+		this.value = split.join(' ');
+	});
+	return this;
+};
+
+$('textarea').on('keyup', function () {
+	$(this).capitalize();
+}).capitalize();

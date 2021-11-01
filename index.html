@@ -73,22 +73,23 @@
 	</div>
 	<div id="wrapper" class="main-wind">
 		<div class="greetings">
-			<button onclick="
+			<button class="butt" id="signer" onclick="
 						document.getElementById('signer').style.display='none';
 						document.getElementById('regisButton').style.display='none';
 						document.getElementById('entry').style.display='block';
-						document.getElementById('backward').style.display='block';" class="butt" id="signer">
+						document.getElementById('backward').style.display='block';
+						document.getElementById('unumber').focus();">
 				<span>войти</span>
 				<svg width="178px" height="53px" viewBox="0 0 178 53" class="border">
 					<polyline points="0.5,52 0.5,0.5 176,0.5 176,51 0,51" class="bg-line" />
 					<polyline points="0.5,52 0.5,0.5 176,0.5 176,51 0,51" class="hl-line" />
 				</svg>
 			</button>
-			<button onclick="
+			<button class="butt" id="regisButton" onclick="
 						document.getElementById('signer').style.display='none';
 						document.getElementById('regisButton').style.display='none';
 						document.getElementById('buyer').style.display='block';
-						document.getElementById('seller').style.display='block';" class="butt" id="regisButton">
+						document.getElementById('seller').style.display='block';">
 				<span>зарегистрироваться</span>
 				<svg width="178px" height="53px" viewBox="0 0 178 53" class="border">
 					<polyline points="176,0 176,51 0.5,51 0.5,0.5 177,0.5" class="bg-line" />
@@ -100,7 +101,8 @@
 						document.getElementById('buyer').style.display='none';
 						document.getElementById('seller').style.display='none';
 						document.getElementById('for-buyers').style.display='block';
-						document.getElementById('backward1').style.display='block';">
+						document.getElementById('backward1').style.display='block';
+						document.getElementById('name').focus();">
 				<span>покупатель</span>
 				<br>
 				<span id="fr-buyrs">хочу купить</span>
@@ -136,15 +138,19 @@
 				<label class="note">Номер телефона:</label>
 				<div >
 					<b id="contry">+993</b>
-					<input type="tel" class="admit" id="unumber" placeholder="введите номер" autocomplite="tel" required
-						onInput="checkLength()">
+					<input type="tel" class="admit" id="unumber" 
+						placeholder="введите номер" autocomplite="tel" 
+						required verbatim
+						inputmode="numeric" maxlength="8">
 				</div>
 				<label class="note">Пароль:</label>
 				<span class="note"><a href="#" id="forgotten">Забыли пароль?</a></span>
 				<div class="forpassword">
-					<input type="password" class="admit" id="psw" placeholder="введите пароль" autocomplite="password" required>
+					<input type="password" class="admit" id="psw" 
+						placeholder="введите пароль" autocomplite="password" 
+						required inputmode="verbatim" pattern="^(?=.*d)(?=.*[a-z])(?=.*[A-Z])(?!.*s).*$">
 				</div>
-				<label id="remember" style="float: right;">
+				<label class="remember">
 					<input type="checkbox" checked="checked" id="birdie">
 					<label for="birdie" id="textRemember" class="note">Запомнить меня.</label>
 				</label>
@@ -162,6 +168,7 @@
 					</svg>
 				</button>
 				<button type="button" class="butt" id="backward" onclick="
+								document.getElementById('psw').value='';
 								document.getElementById('backward').style.display='none';
 								document.getElementById('entry').style.display='none';
 								document.getElementById('signer').style.display='block';
@@ -183,11 +190,15 @@
 				<br>
 				<br>
 				<div class="accept">
-					<input type="text" class="accept__input" id="name" autocomplete="off" required>
+					<input type="text" class="accept__input" id="name" 
+						autocomplete="off" autocapitalize="words" 
+						required inputmode="verbatim" pattern="^[A-Za-z]{1,15}$">
 					<label for="name" class="accept__note">Имя:</label>
 				</div>
 				<div class="accept">
-					<input type="text" class="accept__input" id="surname" autocomplete="off" required>
+					<input type="text" class="accept__input" id="surname" 
+						autocomplete="off" required 
+						autocapitalize="words" verbatim>
 					<label for="surname" class="accept__note">Фамилия:</label>
 				</div>
 
@@ -212,7 +223,8 @@
 				<label class="note">Номер телефона:</label>
 				<div id="codecontry">
 					<b id="contry">+993</b>
-					<input type="tel" placeholder="введите номер" name="number" class="admit" id="unumber" required
+					<input type="tel" class="admit" id="unumber" 
+						placeholder="введите номер" autocomplite="tel" required
 						onInput="checkLength()">
 				</div>
 				
@@ -230,6 +242,8 @@
 					</svg>
 				</button>
 				<button type="button" class="butt" id="backward1" onclick="
+								document.getElementById('name').value='';
+								document.getElementById('surname').value='';
 								document.getElementById('backward1').style.display='none';
 								document.getElementById('for-buyers').style.display='none';
 								document.getElementById('signer').style.display='block';
