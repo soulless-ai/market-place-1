@@ -238,7 +238,7 @@ input[list]::-webkit-calendar-picker-indicator {
 	}
 		img.avatar {
 			margin: 30px 0 12px 0;
-			width: 70%;
+			width: 35%;
 			border-radius: 50%;
 		}
 
@@ -259,7 +259,7 @@ input[list]::-webkit-calendar-picker-indicator {
 		input {
 			position: relative;
 			width: 100%;
-			height: 35px;
+			height: 28px;
 			padding: 3px 25px;
 			margin: 3px 0;
 			display: inline-block;
@@ -289,6 +289,36 @@ input[list]::-webkit-calendar-picker-indicator {
 				-webkit-text-stroke: 0.2px #320240;
 			} 
 			input::-moz-placeholder {
+				position: absolute;
+				padding: 3px;
+				font-family: 'Vollkorn', serif;;
+				font-weight: bold;
+				font-size: 12px;
+				letter-spacing: 0.7px;
+				color: #ffd700;
+				text-transform: lowercase;
+				line-height: 1.5em;
+				text-decoration: none;
+				transition: 1s ease-in-out;
+				font-weight: 100;
+				-webkit-text-stroke: 0.2px #320240;
+			}
+			input:-moz-placeholder {
+				position: absolute;
+				padding: 3px;
+				font-family: 'Vollkorn', serif;;
+				font-weight: bold;
+				font-size: 12px;
+				letter-spacing: 0.7px;
+				color: #ffd700;
+				text-transform: lowercase;
+				line-height: 1.5em;
+				text-decoration: none;
+				transition: 1s ease-in-out;
+				font-weight: 100;
+				-webkit-text-stroke: 0.2px #320240;  
+			}
+			input:-ms-input-placeholder {  
 				position: absolute;
 				padding: 3px;
 				font-family: 'Vollkorn', serif;;
@@ -495,6 +525,10 @@ input[list]::-webkit-calendar-picker-indicator {
 #for-buyers{
 	display: none;
 }
+	#container_first{
+		display: none;
+		margin-top: 35px;
+	}
 		input[type=text] {
 			text-transform: capitalize;
 		}
@@ -519,12 +553,13 @@ input[list]::-webkit-calendar-picker-indicator {
 
 			.accept__input:hover ~ .accept__note,
 			.accept__input:focus ~ .accept__note,
-			input[type="text"]:valid ~ .accept__note {
+			input:valid ~ .accept__note {
 				top: -53px;
 				left: 10px;
 				font-size: 15px;
 				background-image: url(/img/background.jpg);
 				padding: 1px 4px;
+				padding-top: 3px;
 				margin: 0px;
 				border-top: 1.7px groove rgb(255, 215, 0);
 				box-sizing: border-box;
@@ -534,7 +569,7 @@ input[list]::-webkit-calendar-picker-indicator {
 				-webkit-text-stroke: .3px #320240;
 			}
 			.accept__input:hover ~ .accept__note,
-			input[type="text"]:valid ~ .accept__note {
+			input:valid ~ .accept__note {
 				box-shadow: inset 0px 1px 3px rgb(50,2,64);
 			}
 
@@ -625,15 +660,80 @@ input[list]::-webkit-calendar-picker-indicator {
 					input[type="radio"]:checked {
 						box-shadow: inset 0px 0px 9px rgb(50,2,64), 0px 0px 8px rgb(50,2,64);
 					}
+
+		#note__number {
+			position: absolute;
+			display: block;
+			margin-top: 85px;
+			z-index: 1;
+		}
 	#container_second {
 		display: none;
+		margin-top: 25px;
 	}
+		#check__data {
+			width: 50%;
+			text-align: end;
+		}
+		.note__data {
+			font-size: 14px;
+			line-height: 25px;
+			text-decoration: underline 1px;
+			text-decoration-style: double;
+			-webkit-text-underline-position: under;
+			-ms-text-underline-position: below;
+			text-underline-position: under; 
+			-webkit-text-decoration-color : rgb(50,2,64);
+			-moz-text-decoration-color : rgb(50,2,64);
+			text-decoration-color : rgb(50,2,64);
+		}
+
 		#sms_code {
 			text-align: center;
 		}
-		#sms_code::-webkit-input-placeholder {
-			text-align: center;
-		}
-		#sms_code::-moz-placeholder {
-			text-align: center;
+			#sms_code_note {
+				top: -32px;
+				left: 0%;
+				margin-left: -50%;
+				font-size: 12px;
+				padding: 1px 4px;
+				padding-bottom: 5px;
+				margin: 0px;
+				z-index: -1;
+			}
+				#sms_code:hover ~ #sms_code_note,
+				#sms_code:focus ~ #sms_code_note,
+				input:valid ~ #sms_code_note {
+					top: -9px;
+					left: 0%;
+					margin-left: -50%;
+					font-size: 12px;
+					background-image: url(/img/background.jpg);
+					padding: 1px 4px;
+					padding-bottom: 3px;
+					margin: 0px;
+					border-top: 0px;
+					border-bottom: 1.7px groove rgb(255, 215, 0);
+					box-sizing: border-box;
+					border-radius: 0px 0px 7px 7px;
+					box-shadow: inset 0px -2px 4px rgb(50,2,64);
+					color: rgb(255, 215, 0);
+					-webkit-text-stroke: .3px #320240;
+					-webkit-transition: 800ms ease-in-out;
+					-moz-transition: 800ms ease-in-out;
+					-o-transition: 800ms ease-in-out;
+					transition: 800ms ease-in-out;
+					z-index: 0;
+				}
+				#sms_code:hover ~ #sms_code_note,
+				input:valid ~  #sms_code_note {
+					box-shadow: inset 0px -1px 3px rgb(50,2,64);
+				}
+
+		#note_text {
+			font-size: 13px;
+			color: rgb(50,2,64);
+			-webkit-text-stroke: .2px rgb(255, 215, 0);
+			padding: 35px;
+			padding-top: 0px;
 		}

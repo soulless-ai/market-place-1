@@ -102,6 +102,8 @@
 						document.getElementById('buyer').style.display='none';
 						document.getElementById('seller').style.display='none';
 						document.getElementById('for-buyers').style.display='block';
+						document.getElementById('container_first').style.display='block';
+						document.getElementById('container_second').style.display='none';
 						document.getElementById('backward1').style.display='block';
 						document.getElementById('name').focus();">
 				<span>покупатель</span>
@@ -192,9 +194,8 @@
 
 	<div id="for-buyers" class="main-wind">
 		<form id="buyers-content" action="/php/check.php" method="post">
+
 			<div class="container" id="container_first">
-
-
 				<div class="accept">
 					<input type="text" class="accept__input" id="name" 
 						autocomplete="off" required inputmode="verbatim">
@@ -220,10 +221,8 @@
 					</label>
 				</fieldset>
 
-
-
-				<label class="note">Номер телефона:</label>
-				<div >
+				<label for="buyer_number" class="note" id="note__number">Номер телефона:</label>
+				<div style="margin-top: 100px;">
 					<b id="contry">+993</b>
 					<input type="tel" class="admit" id="buyer_number" 
 						placeholder="введите номер" autocomplite="tel" 
@@ -235,17 +234,25 @@
 			</div>
 
 			<div class="container" id="container_second">
-				<label>Имя:</label>
-				<p>
-				<label>Фамилия:</label>
-				<p>
-				<label>Пол:</label>
-
-				<input type="tel" id="sms_code" placeholder="введите полученный смс код.">
-
-				<p>
-					Убедитесь, что предоставляемая вами информация верна. Введите <a title="">код подтверждения</a> 
-					отправленный на номер:<label></label>. После регистрации остальную часть информации о себе вы сможете 
+				<div class="note" id="check__data">
+					<label class="note__data">Имя:</label>
+					<p>
+					<label class="note__data">Фамилия:</label>
+					<p>
+					<label class="note__data">Пол: </label>
+				</div>
+				
+				<div class="accept" style="text-align: center;
+													margin-top: 15px;">
+					<input type="tel" class="accept__input" id="sms_code" 
+						autocomplete="one-time-code"
+						required inputmode="verbatim">
+					<label for="sms_code" class="accept__note" id="sms_code_note">код из СМС.</label>
+				</div>
+				<p class="note" id="note_text">
+					Введите <a title="">код подтверждения</a> 
+					отправленный на номер:<label></label>. Если сообщение не получено - убедитесь, что предоставляемая вами информация верна. 
+					После регистрации остальную часть информации о себе вы сможете 
 					ввести в разделе "профиль".
 				</p>
 			</div>
@@ -254,7 +261,8 @@
 				<button type="button" class="butt" id="sign" onclick="
 								document.getElementById('container_first').style.display='none';
 								document.getElementById('backward').style.display='none';
-								document.getElementById('container_second').style.display='block';">
+								document.getElementById('container_second').style.display='block';
+								document.getElementById('sms_code').focus();">
 					<span>далее</span>
 					<svg width="178px" height="53px" viewBox="0 0 178 53" class="border">
 						<polyline points="0.5,52 0.5,0.5 176,0.5 176,51 0,51" class="bg-line" />
