@@ -12,7 +12,7 @@ html {
 
 span {
 	position: relative;
-	font-family: 'Vollkorn', serif;;
+	font-family: 'Vollkorn', serif;
 	font-weight: bold;
 	font-size: 12px;
 	color: #ffd700;
@@ -40,9 +40,8 @@ a {
 	width: 25%;
 	min-width: 190px;
 	height: 75%;
-	border: 2px solid #ffd700;
+	border: 2px groove #ffd700;
 	border-radius: 19px;
-	border-style: groove;
 	box-shadow: 0px 0px 9px #320240;
 	-webkit-transform: translate(-50%,-50%);
 	transform: translate(-50%,-50%);
@@ -73,9 +72,8 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-	border: 2px solid #ffd700;
+	border: 2px groove #ffd700;
 	box-sizing: border-box;
-	border-style: groove;
 	box-shadow: inset 0px 0px 4px rgb(50,2,64);
 	-webkit-text-fill-color: rgb(255, 215, 0);
 	font-family: 'Vollkorn', serif;
@@ -97,7 +95,7 @@ input[list]::-webkit-calendar-picker-indicator {
 }
 @media screen and (-webkit-min-device-pixel-ratio:0) {
 	input[type="password"] {
-		font-family: Verdana, Geneva, sans-serif;
+		font-family: 'Vollkorn', serif;
 		letter-spacing: -.75px;
 	} 
 }
@@ -144,8 +142,7 @@ input[list]::-webkit-calendar-picker-indicator {
 		width: 180px;
 		height: 55px;
 		background-image: url(/img/background.jpg);
-		border: 1.7px solid #ffd700;
-		border-style: groove;
+		border: 1.7px groove #ffd700;
 		box-shadow: inset 0px 0px 7px rgb(50,2,64);
 		text-align: center;
 		line-height: 1.5em;
@@ -266,9 +263,8 @@ input[list]::-webkit-calendar-picker-indicator {
 			padding: 3px 25px;
 			margin: 3px 0;
 			display: inline-block;
-			border: 1.7px solid #ffd700;
+			border: 1.7px groove #ffd700;
 			box-sizing: border-box;
-			border-style: groove;
 			box-shadow: inset 0px 0px 4px rgb(50,2,64);
 			background: url("/img/background.jpg") 0px 0px no-repeat;
 			outline: none;
@@ -277,17 +273,13 @@ input[list]::-webkit-calendar-picker-indicator {
 		input[type="tel"] {
 			padding: 3px 45px;
 		}
-			input:focus {
-				border: 2px solid #ffd700;
-				box-sizing: border-box;
-				border-style: groove;
-				box-shadow: inset 0px 0px 7px rgb(50,2,64);
-			}
 			input::-webkit-input-placeholder {
-				position: relative;
+				position: absolute;
+				padding: 3px;
 				font-family: 'Vollkorn', serif;;
 				font-weight: bold;
 				font-size: 12px;
+				letter-spacing: 0.7px;
 				color: #ffd700;
 				text-transform: lowercase;
 				line-height: 1.5em;
@@ -297,10 +289,12 @@ input[list]::-webkit-calendar-picker-indicator {
 				-webkit-text-stroke: 0.2px #320240;
 			} 
 			input::-moz-placeholder {
-				position: relative;
+				position: absolute;
+				padding: 3px;
 				font-family: 'Vollkorn', serif;;
 				font-weight: bold;
 				font-size: 12px;
+				letter-spacing: 0.7px;
 				color: #ffd700;
 				text-transform: lowercase;
 				line-height: 1.5em;
@@ -316,12 +310,17 @@ input[list]::-webkit-calendar-picker-indicator {
 				font-weight: bold;
 				font-size: 13px;
 				font-weight: 100;
+				margin-top: 5px;
 				color: #ffd700;
 				-webkit-text-stroke: .2px #320240;
 			}
 		
 			textarea:focus, input:focus {
+				margin-top: 5px;
 				color: #320240;
+				border: 2px groove #ffd700;
+				box-sizing: border-box;
+				box-shadow: inset 0px 0px 7px rgb(50,2,64);
 			}
 		.admit::-webkit-input-placeholder       {opacity: 1; transition: opacity 0.3s ease;}
 		.admit::-moz-placeholder                {opacity: 1; transition: opacity 0.3s ease;}
@@ -333,6 +332,19 @@ input[list]::-webkit-calendar-picker-indicator {
 		.admit:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s ease;}
 
 
+		.password-control {
+			position: absolute;
+			cursor: pointer;
+			padding: 30px 0 0 40px;
+			margin: 8px 0px 0px -32px;
+			fill: #ffd700;
+			background: url(/img/ico/show-password.svg) 0 0 no-repeat;
+			z-index: 1;
+		}
+		.password-control.view {
+			fill: #ffd700;
+			background: url(/img/ico/not-show-password.svg) 0 0 no-repeat;
+		}
 		.remember {
 			float: right;
 		}
@@ -347,7 +359,7 @@ input[list]::-webkit-calendar-picker-indicator {
 			position: absolute;
 			font-family: 'Vollkorn', serif;;
 			font-weight: bold;
-			font-size: 12px;
+			font-size: 13px;
 			font-weight: 100;
 			color: #ffd700;
 			border-right: 2.5px solid #ffd700;
@@ -358,7 +370,7 @@ input[list]::-webkit-calendar-picker-indicator {
 			-webkit-text-stroke: .2px #320240;
 			z-index: 1;
 		}
-
+		
 		.forpassword::before {
 			font-family: 'FontAwesome';
 			content: "\f023";
@@ -439,7 +451,7 @@ input[list]::-webkit-calendar-picker-indicator {
 				[type="checkbox"]:checked + label:after {
 					content: '✔';
 					position: absolute;
-					top: .525em;
+					top: .425em;
 					left: .28em;
 					font-size: 1.375em;
 					color: #ffd700;
@@ -480,143 +492,148 @@ input[list]::-webkit-calendar-picker-indicator {
 				}
 
 
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-	span.psw {
-		display: block;
-		float: none;
-	}
-	.cancelbtn {
-		width: 100%;
-	}
-}
-
-
 #for-buyers{
 	display: none;
 }
-	.accept_input {
-		text-transform: capitalize;
-	}
-	.accept__note {
-		position: relative;
-		left: 28px;
-		top: -31px;
-		font-family: 'Vollkorn', serif;
-		font-size: 12px;
-		color: #ffd700;
-		text-align: center;
-		line-height: 1.5em;
-		text-decoration: none;
-		cursor: text;
-		font-weight: 100;
-		-webkit-text-stroke: .2px #320240;
-		-webkit-transition: 300ms ease-in-out;
-		-moz-transition: 300ms ease-in-out;
-		-o-transition: 300ms ease-in-out;
-		transition: 300ms ease-in-out;
-	}
-		.accept__input:hover ~ .accept__note,
-		.accept__input:focus ~ .accept__note,
-		.accept__input:not(:placeholder-shown).accept__input:not(:focus) ~ .accept__note  {
-			top: -53px;
-			left: 10px;
-			font-size: 15px;
-			background-image: url(/img/background.jpg);
-			padding: 1px 4px;
-			margin: 0px;
-			border-top: 2px solid rgb(255, 215, 0);
-			box-sizing: border-box;
-			border-radius: 7px;
-			box-shadow: inset 0px 1.5px 3px rgb(50,2,64);
-			color: rgb(255, 215, 0);
-			-webkit-text-stroke: .3px #320240;
+		input[type=text] {
+			text-transform: capitalize;
 		}
-
-	.alternative {
-		float: right;
-		color:rgb(255, 215, 0);
-		border-color: rgb(255, 215, 0);
-		box-sizing: border-box;
-		box-shadow: inset 0px 0px 4px rgb(50,2,64);
-		background: url("/img/background.jpg") 0px 0px no-repeat;
-		font-size: 16px;
-		-webkit-text-stroke: .3px #320240;
-	}
-		legend {
-			background-image: url(/img/background-gold.jpg);
-			padding: 1px 4px;
-			margin: 0px;
-			border-color: rgb(255, 215, 0);
-			box-sizing: border-box;
-			border-style: groove;
-			box-shadow: inset 0px 0px 4px rgb(50,2,64);
+		.accept__note {
+			position: relative;
+			left: 28px;
+			top: -31px;
 			font-family: 'Vollkorn', serif;
 			font-size: 12px;
-			color: rgb(50,2,64);
-			text-shadow: #ffd700 0.5px 0.5px 0;
-			text-decoration: none;
-			font-weight: bold;
+			color: #ffd700;
+			text-align: center;
 			line-height: 1.5em;
 			text-decoration: none;
-			cursor: default;
+			cursor: text;
 			font-weight: 100;
 			-webkit-text-stroke: .2px #320240;
+			-webkit-transition: 300ms ease-in-out;
+			-moz-transition: 300ms ease-in-out;
+			-o-transition: 300ms ease-in-out;
+			transition: 300ms ease-in-out;
 		}
 
-		#frMan:after, #frWoman:after {
-			display: block;
-			float: left;
-			position: relative;
-			left: 0;
-			width: 0;
-			height: 1px;
-			margin: 0px;
-			background-color: #320240;
-			content: "";
-			-webkit-transition: width 0.3s ease-out;
-			-moz-transition: width 0.3s ease-out;
-			-o-transition: width 0.3s ease-out;
-			transition: width 0.3s ease-out;
-		}
-			#frWoman:after {
-				left: 5%;
+			.accept__input:hover ~ .accept__note,
+			.accept__input:focus ~ .accept__note,
+			input[type="text"]:valid ~ .accept__note {
+				top: -53px;
+				left: 10px;
+				font-size: 15px;
+				background-image: url(/img/background.jpg);
+				padding: 1px 4px;
+				margin: 0px;
+				border-top: 1.7px groove rgb(255, 215, 0);
+				box-sizing: border-box;
+				border-radius: 7px 7px 0px 0;
+				box-shadow: inset 0px 2px 4px rgb(50,2,64);
+				color: rgb(255, 215, 0);
+				-webkit-text-stroke: .3px #320240;
 			}
-			#frMan:hover:after, #frWoman:hover:after,
-			#frMan:focus:after, #frWoman:focus:after {
-				width: 100%; 
-				margin-bottom: -5px;
+			.accept__input:hover ~ .accept__note,
+			input[type="text"]:valid ~ .accept__note {
+				box-shadow: inset 0px 1px 3px rgb(50,2,64);
 			}
 
-			#textWoman {
-				margin-left: 9px;
-			}
-			#textMan, #textWoman {
-				float: left;
-				text-decoration: none; 
+		.alternative {
+			float: right;
+			color:rgb(255, 215, 0);
+			border-color: rgb(255, 215, 0);
+			box-sizing: border-box;
+			box-shadow: inset 0px 0px 4px rgb(50,2,64);
+			background: url("/img/background.jpg") 0px 0px no-repeat;
+			font-size: 16px;
+			-webkit-text-stroke: .3px #320240;
+		}
+			legend {
+				background-image: url(/img/background-gold.jpg);
+				padding: 1px 4px;
+				margin: 0px;
+				border-color: rgb(255, 215, 0);
+				box-sizing: border-box;
+				border-style: groove;
+				box-shadow: inset 0px 0px 4px rgb(50,2,64);
+				font-family: 'Vollkorn', serif;
 				font-size: 12px;
-				font-family: 'Vollkorn', serif;;
+				color: rgb(50,2,64);
+				text-shadow: #ffd700 0.5px 0.5px 0;
+				text-decoration: none;
 				font-weight: bold;
-				font-size: 12px;
+				line-height: 1.5em;
+				text-decoration: none;
+				cursor: default;
 				font-weight: 100;
 				-webkit-text-stroke: .2px #320240;
 			}
 
-			input[type="radio"] {
-				padding: 3px;
-				margin: 3px;
-				-webkit-appearance: none;
-				-moz-appearance: none;
-				appearance: none;
-				border-radius: 50%;
-				width: 18px;
-				height: 18px;
-				border: 1px solid rgb(255, 215, 0);
-				-webkit-transition: all .2s linear;
-				-moz-transition: all .2s linear;
-				-o-transition: all .2s linear;
-				transition: .2s all linear;
+			#frMan:after, #frWoman:after {
+				display: block;
+				float: left;
+				position: relative;
+				left: 0;
+				width: 0;
+				height: 1px;
+				margin: 0px;
+				background-color: #320240;
+				content: "";
+				-webkit-transition: width 0.3s ease-out;
+				-moz-transition: width 0.3s ease-out;
+				-o-transition: width 0.3s ease-out;
+				transition: width 0.3s ease-out;
 			}
-				input[type="radio"]:checked {
-					box-shadow: inset 0px 0px 9px rgb(50,2,64), 0px 0px 8px rgb(50,2,64);
+				#frWoman:after {
+					left: 5%;
 				}
+				#frMan:hover:after, #frWoman:hover:after,
+				#frMan:focus:after, #frWoman:focus:after {
+					width: 100%; 
+					margin-bottom: -5px;
+				}
+
+				#textWoman {
+					margin-left: 9px;
+				}
+				#textMan, #textWoman {
+					float: left;
+					text-decoration: none; 
+					font-size: 12px;
+					font-family: 'Vollkorn', serif;;
+					font-weight: bold;
+					font-size: 12px;
+					font-weight: 100;
+					-webkit-text-stroke: .2px #320240;
+				}
+
+				input[type="radio"] {
+					padding: 3px;
+					margin: 3px;
+					-webkit-appearance: none;
+					-moz-appearance: none;
+					appearance: none;
+					border-radius: 50%;
+					width: 18px;
+					height: 18px;
+					border: 1px solid rgb(255, 215, 0);
+					-webkit-transition: all .2s linear;
+					-moz-transition: all .2s linear;
+					-o-transition: all .2s linear;
+					transition: .2s all linear;
+				}
+					input[type="radio"]:checked {
+						box-shadow: inset 0px 0px 9px rgb(50,2,64), 0px 0px 8px rgb(50,2,64);
+					}
+	#container_second {
+		display: none;
+	}
+		#sms_code {
+			text-align: center;
+		}
+		#sms_code::-webkit-input-placeholder {
+			text-align: center;
+		}
+		#sms_code::-moz-placeholder {
+			text-align: center;
+		}

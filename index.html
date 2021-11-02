@@ -51,6 +51,7 @@
 	<link rel="stylesheet" type="text/css" href="css/fontawesome.css" media="screen">
 	<link rel="stylesheet" type="text/css" href="css/layout.css" media="screen">
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script type="text/javascript">
 		try {
 			var trackingData = JSON.parse(
@@ -141,14 +142,19 @@
 					<input type="tel" class="admit" id="unumber" 
 						placeholder="введите номер" autocomplite="tel" 
 						required verbatim
-						inputmode="numeric" maxlength="8">
+						inputmode="numeric" maxlength="8"
+						onkeyup="this.setAttribute('value', this.value);" value="" />
 				</div>
 				<label class="note">Пароль:</label>
 				<span class="note"><a href="#" id="forgotten">Забыли пароль?</a></span>
 				<div class="forpassword">
 					<input type="password" class="admit" id="psw" 
 						placeholder="введите пароль" autocomplite="password" 
-						required inputmode="verbatim" pattern="^(?=.*d)(?=.*[a-z])(?=.*[A-Z])(?!.*s).*$">
+						required inputmode="verbatim">
+					<b class="password-control" title="Показать/Скрыть пароль."
+						onclick="	
+							show_hide_password(this);
+							document.getElementById('psw').focus();"></b>
 				</div>
 				<label class="remember">
 					<input type="checkbox" checked="checked" id="birdie">
@@ -186,19 +192,17 @@
 
 	<div id="for-buyers" class="main-wind">
 		<form id="buyers-content" action="/php/check.php" method="post">
-			<div class="container">
-				<br>
-				<br>
+			<div class="container" id="container_first">
+
+
 				<div class="accept">
 					<input type="text" class="accept__input" id="name" 
-						autocomplete="off" autocapitalize="words" 
-						required inputmode="verbatim" pattern="^[A-Za-z]{1,15}$">
+						autocomplete="off" required inputmode="verbatim">
 					<label for="name" class="accept__note">Имя:</label>
 				</div>
 				<div class="accept">
 					<input type="text" class="accept__input" id="surname" 
-						autocomplete="off" required 
-						autocapitalize="words" verbatim>
+						autocomplete="off" required verbatim>
 					<label for="surname" class="accept__note">Фамилия:</label>
 				</div>
 
@@ -215,26 +219,42 @@
 						<label for="contactChoice2" id="textWoman" class="note">женский.</label>
 					</label>
 				</fieldset>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
+
+
+
 				<label class="note">Номер телефона:</label>
-				<div id="codecontry">
+				<div >
 					<b id="contry">+993</b>
-					<input type="tel" class="admit" id="unumber" 
-						placeholder="введите номер" autocomplite="tel" required
-						onInput="checkLength()">
+					<input type="tel" class="admit" id="buyer_number" 
+						placeholder="введите номер" autocomplite="tel" 
+						required verbatim
+						inputmode="numeric" maxlength="8"
+						onkeyup="this.setAttribute('value', this.value);" value="" />
 				</div>
 				
 			</div>
 
+			<div class="container" id="container_second">
+				<label>Имя:</label>
+				<p>
+				<label>Фамилия:</label>
+				<p>
+				<label>Пол:</label>
+
+				<input type="tel" id="sms_code" placeholder="введите полученный смс код.">
+
+				<p>
+					Убедитесь, что предоставляемая вами информация верна. Введите <a title="">код подтверждения</a> 
+					отправленный на номер:<label></label>. После регистрации остальную часть информации о себе вы сможете 
+					ввести в разделе "профиль".
+				</p>
+			</div>
+
 			<div class="greetings">
 				<button type="button" class="butt" id="sign" onclick="
-								document.getElementById('regisButton').style.display='none';
-								document.getElementById('').style.display='block';
-								document.getElementById('backward2').style.display='block';">
+								document.getElementById('container_first').style.display='none';
+								document.getElementById('backward').style.display='none';
+								document.getElementById('container_second').style.display='block';">
 					<span>далее</span>
 					<svg width="178px" height="53px" viewBox="0 0 178 53" class="border">
 						<polyline points="0.5,52 0.5,0.5 176,0.5 176,51 0,51" class="bg-line" />

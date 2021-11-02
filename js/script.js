@@ -24,7 +24,8 @@ function addElement(e) {
 };
 
 
-let inputEl = document.getElementById('unumber');
+let userNumber = document.getElementById('unumber');
+let buyerNumber = document.getElementById('buyer_number');
 let goodKey = '0123456789';
 let checkInputTel = function(e) {
 	let key = (typeof e.which == "number") ? e.which : e.keyCode;
@@ -39,10 +40,24 @@ let checkInputTel = function(e) {
 	this.setSelectionRange(start - move, end - move);
 }
 
+function show_hide_password(target){
+	var input = document.getElementById('psw');
+	if (input.getAttribute('type') == 'password') {
+		target.classList.add('view');
+		input.setAttribute('type', 'text');
+	} else {
+		target.classList.remove('view');
+		input.setAttribute('type', 'password');
+	}
+	return false;
+}
+
+
 let filterInput = function(val) {
 	return (goodKey.indexOf(val) > -1);
 }
-inputEl.addEventListener('input', checkInputTel);
+userNumber.addEventListener('input', checkInputTel);
+buyerNumber.addEventListener('input', checkInputTel);
 
 $.fn.capitalize = function () {
 	$.each(this, function () {
@@ -58,3 +73,4 @@ $.fn.capitalize = function () {
 $('textarea').on('keyup', function () {
 	$(this).capitalize();
 }).capitalize();
+
